@@ -1,10 +1,14 @@
 package com.example.demo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Bestellposition {
     public Long bestellposNr;
     public Long bestellungsNr;
     public Long artikelNr;
     public Integer anzahl;
+
 
     public Bestellposition() {
 

@@ -19,4 +19,5 @@ public class Artikel {
     this.einzelpreis = einzelpreis;
   }
 
+
 }
