@@ -1,9 +1,12 @@
 package com.example.demo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Bestellung {
-    Kunde k = new Kunde();
+
     public Long bestellungsNr;
-    public Long kundenNr = k.kundenNr;
+    public Long kundenNr;
 
     public Bestellung() {
 
