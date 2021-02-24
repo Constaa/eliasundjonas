@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Kunde {
     public Long kundenNr;
     public String vorname;
