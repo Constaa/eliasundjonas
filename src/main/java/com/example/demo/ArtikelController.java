@@ -18,18 +18,26 @@ public class ArtikelController {
         this.artikel = artikelStorage;
     }
 
-    @GetMapping(path="/{id}")
+    @GetMapping(path = "/{id}")
     public Artikel get(@PathVariable Long id) {
         return artikel.get(id);
     }
+
     @GetMapping
     public Collection<Artikel> get(){
         Collection<Artikel> artikelCollection = artikel.values();
         return artikelCollection;
     }
+
+    @PostMapping
+    public Artikel post(@RequestBody Artikel newArtikel) {
+        artikel.put(newArtikel.artikelNr, newArtikel);
+        return newArtikel;
+    }
+
     @PutMapping(path = "/{id}")
     public Artikel put(@PathVariable Long id,
-                         @RequestBody Artikel newArtikel) {
+                       @RequestBody Artikel newArtikel) {
         Artikel art = artikel.get(id);
         if (art != null) {
             if (newArtikel.artikelNr!=null)
@@ -45,5 +53,9 @@ public class ArtikelController {
         }
     }
 
+    @DeleteMapping(path = "/{id}")
+    public void delete(@PathVariable Long id) {
+        artikel.remove(id);
+    }
 
 }
