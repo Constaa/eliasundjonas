@@ -47,7 +47,9 @@ public class BestellungController {
     public ArrayList<Bestellung> getKundeFromBestellung(@PathVariable Long value) {
         ArrayList<Bestellung> b = new ArrayList<>();
         for (Long i = 0L; i < bestellungen.size(); i++) {
-            if (bestellungen.get(i).kundenNr == value) {
+            if (!bestellungen.keySet().contains(i)) {
+                continue;
+            } if (bestellungen.get(i).kundenNr == value) {
                 b.add(bestellungen.get(i));
             }
         }

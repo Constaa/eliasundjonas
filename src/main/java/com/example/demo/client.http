@@ -21,7 +21,8 @@ Accept: application/json
 
 ### Aufgabe 2b) ###
 
-
+GET localhost:8080/bestellpositionen
+Accept: application/json
 
 
 
