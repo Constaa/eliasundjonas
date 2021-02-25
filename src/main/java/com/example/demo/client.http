@@ -1,0 +1,14 @@
+GET localhost:8080/kunden
+Accept: application/json
+
+<> 2021-02-25T140601.200.json
+
+
+###
+
+
+GET localhost:8080/kunden/2
+Accept: application/json
+
+<> 2021-02-25T140601-1.200.json
+
