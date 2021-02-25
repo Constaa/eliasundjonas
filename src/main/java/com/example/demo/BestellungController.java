@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @RestController
@@ -24,6 +25,16 @@ public class BestellungController {
     @GetMapping(path = "/{id}")
     public Bestellung get(@PathVariable Long id) {
         return bestellungen.get(id);
+    }
+    @GetMapping(path = "kundenNr/{value}")
+    public ArrayList<Bestellung> getKunde(@PathVariable Long value) {
+        ArrayList<Bestellung> b = new ArrayList<Bestellung>();
+        for (Long i = 0L; i < bestellungen.size(); i++) {
+            if (bestellungen.get(i).kundenNr == value) {
+                b.add(bestellungen.get(i));
+            }
+        }
+        return b;
     }
 
     @PostMapping
