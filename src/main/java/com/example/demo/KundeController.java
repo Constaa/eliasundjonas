@@ -16,24 +16,24 @@ public class KundeController {
     }
 
     @GetMapping
-    public Collection<Kunde> get() {
+    public Collection<Kunde> getAllKunden() {
         Collection<Kunde> kundeCollection = kunden.values();
         return kundeCollection;
     }
 
     @GetMapping(path = "/{id}")
-    public Kunde get(@PathVariable Long id) {
+    public Kunde getKunde(@PathVariable Long id) {
         return kunden.get(id);
     }
 
     @PostMapping
-    public Kunde post(@RequestBody Kunde kunde) {
+    public Kunde postKunde(@RequestBody Kunde kunde) {
         kunden.put(kunde.kundenNr, kunde);
         return kunde;
     }
 
     @PutMapping(path = "/{id}")
-    public Kunde put(@PathVariable Long id,
+    public Kunde putKunde(@PathVariable Long id,
                                @RequestBody Kunde kunde) {
         Kunde kun = kunden.get(id);
         if (kun != null) {
@@ -59,7 +59,7 @@ public class KundeController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public void delete(@PathVariable Long id) {
+    public void deleteKunde(@PathVariable Long id) {
         kunden.remove(id);
     }
 

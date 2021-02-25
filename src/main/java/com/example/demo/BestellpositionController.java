@@ -17,12 +17,13 @@ public class BestellpositionController {
     }
 
     @GetMapping
-    public Collection<Bestellposition> get() {
+    public Collection<Bestellposition> getAllBestellpositionen() {
         Collection<Bestellposition> bestellpositionCollection = bestellpositionen.values();
         return bestellpositionCollection;
     }
+
     @GetMapping(path = "bestellungsNr/{value}")
-    public ArrayList<Bestellposition> getBestellung(@PathVariable Long value) {
+    public ArrayList<Bestellposition> getBestellungFromBestellposition(@PathVariable Long value) {
         ArrayList<Bestellposition> b = new ArrayList<Bestellposition>();
         for (Long i = 0L; i < bestellpositionen.size(); i++) {
             if (bestellpositionen.get(i).bestellungsNr == value) {
@@ -33,18 +34,18 @@ public class BestellpositionController {
     }
 
     @GetMapping(path = "/{id}")
-    public Bestellposition get(@PathVariable Long id) {
+    public Bestellposition getBestellposition(@PathVariable Long id) {
         return bestellpositionen.get(id);
     }
 
     @PostMapping
-    public Bestellposition post(@RequestBody Bestellposition bestellposition) {
+    public Bestellposition postBestellposition(@RequestBody Bestellposition bestellposition) {
         bestellpositionen.put(bestellposition.bestellposNr, bestellposition);
         return bestellposition;
     }
 
     @PutMapping(path = "/{id}")
-    public Bestellposition put(@PathVariable Long id,
+    public Bestellposition putBestellposition(@PathVariable Long id,
                        @RequestBody Bestellposition bestellposition) {
         Bestellposition best = bestellpositionen.get(id);
         if (best != null) {
@@ -64,7 +65,7 @@ public class BestellpositionController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public void delete(@PathVariable Long id) {
+    public void deleteBestellposition(@PathVariable Long id) {
         bestellpositionen.remove(id);
     }
 }

@@ -19,5 +19,8 @@ public class Artikel {
     this.einzelpreis = einzelpreis;
   }
 
+  public String toString() {
+    return bezeichnung + " für je " + einzelpreis;
+  }
 
 }

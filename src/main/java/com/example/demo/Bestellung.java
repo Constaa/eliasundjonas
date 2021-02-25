@@ -15,4 +15,8 @@ public class Bestellung {
         this.bestellungsNr = bestellungsNr;
         this.kundenNr = kundenNr;
     }
+
+    public String toString() {
+        return "Bestellung " + bestellungsNr + " für Kunde " + kundenNr;
+    }
 }

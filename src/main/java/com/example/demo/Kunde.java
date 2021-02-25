@@ -24,4 +24,8 @@ public class Kunde {
         this.plz = plz;
         this.ort = ort;
     }
+
+    public String toString() {
+        return vorname + " " + nachname + " (Kundennr. " + kundenNr + ")";
+    }
 }

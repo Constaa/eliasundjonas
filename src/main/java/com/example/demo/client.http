@@ -1,3 +1,4 @@
+### Aufgabe 2a) ###
 GET localhost:8080/kunden
 Accept: application/json
 
@@ -11,4 +12,17 @@ GET localhost:8080/kunden/2
 Accept: application/json
 
 <> 2021-02-25T140601-1.200.json
+
+###
+
+
+GET localhost:8080/bestellungen/kundenNr/2
+Accept: application/json
+
+### Aufgabe 2b) ###
+
+
+
+
+
 

@@ -17,18 +17,35 @@ public class BestellungController {
     }
 
     @GetMapping
-    public Collection<Bestellung> get() {
+    public Collection<Bestellung> getAllBestellungen() {
         Collection<Bestellung> bestellungCollection = bestellungen.values();
         return bestellungCollection;
     }
 
     @GetMapping(path = "/{id}")
-    public Bestellung get(@PathVariable Long id) {
+    public Bestellung getBestellung(@PathVariable Long id) {
         return bestellungen.get(id);
     }
+
+    /*@GetMapping(path = "kundenNr/{value}")
+    public String getKunde(@PathVariable Long value) {
+        String b = "";
+        for (Long i = 0L; i < bestellungen.size(); i++) {
+            if (bestellungen.get(i).kundenNr == value) {
+                b+= bestellungen.get(i).toString() + "\n";
+                b+= kundeController.get(value).toString() + "\n";
+                for (Bestellposition bestellposition: bestellpositionController.getBestellung(i)) {
+                    System.out.println(bestellposition.bestellposNr);
+                    b+= bestellposition.anzahl + " * " + artikelController.get(bestellposition.artikelNr).toString() + "\n";
+                }
+            }
+        }
+        return b;
+    }*/
+
     @GetMapping(path = "kundenNr/{value}")
-    public ArrayList<Bestellung> getKunde(@PathVariable Long value) {
-        ArrayList<Bestellung> b = new ArrayList<Bestellung>();
+    public ArrayList<Bestellung> getKundeFromBestellung(@PathVariable Long value) {
+        ArrayList<Bestellung> b = new ArrayList<>();
         for (Long i = 0L; i < bestellungen.size(); i++) {
             if (bestellungen.get(i).kundenNr == value) {
                 b.add(bestellungen.get(i));
@@ -38,13 +55,13 @@ public class BestellungController {
     }
 
     @PostMapping
-    public Bestellung post(@RequestBody Bestellung bestellung) {
+    public Bestellung postBestellung(@RequestBody Bestellung bestellung) {
         bestellungen.put(bestellung.bestellungsNr, bestellung);
         return bestellung;
     }
 
     @PutMapping(path = "/{id}")
-    public Bestellung put(@PathVariable Long id,
+    public Bestellung putBestellung(@PathVariable Long id,
                                @RequestBody Bestellung bestellung) {
         Bestellung best = bestellungen.get(id);
         if (best != null) {
@@ -60,7 +77,7 @@ public class BestellungController {
     }
 
     @DeleteMapping(path = "/{id}")
-    public void delete(@PathVariable Long id) {
+    public void deleteBestellung(@PathVariable Long id) {
         bestellungen.remove(id);
     }
 
